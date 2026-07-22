@@ -125,10 +125,9 @@ let appTime = document.getElementById("appTime");
 let tableBody = document.getElementById('tableBody');
 
 function addRecord() {
-    // Basic validation check
+    
     if(patientName.value.trim() !== "" && patientNumber.value.trim() !== "" && appTime.value.trim() !== "") {
 
-        // Duplicate check logic (poora record same ho tabhi rokay)
         let rows = tableBody.querySelectorAll("tr");
         for(let i = 0; i < rows.length; i++) {
             let cols = rows[i].querySelectorAll("td");
@@ -156,7 +155,6 @@ function addRecord() {
 
         let td4 = document.createElement("td");
 
-        // Edit Button setup
         let editBtn = document.createElement("button");
         editBtn.innerText = "Edit";
         editBtn.classList.add("editBtn");
@@ -167,7 +165,6 @@ function addRecord() {
             tr.remove();
         };
 
-        // Delete Button setup
         let delBtn = document.createElement("button");
         delBtn.innerText = "Delete";
         delBtn.classList.add("delBtn");
@@ -179,7 +176,6 @@ function addRecord() {
         tr.append(td1, td2, td3, td4);
         tableBody.append(tr);
 
-        // Inputs reset karne k liye
         patientName.value = "";
         patientNumber.value = "";
         appTime.value = "";
@@ -188,7 +184,6 @@ function addRecord() {
     }
 }
 
-// Enter key press par add ho jaye
 document.addEventListener("keypress", function(e) {
     if(e.key === "Enter") {
         addRecord();
